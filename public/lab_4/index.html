@@ -8,72 +8,76 @@
             <h1>Samson Joseph's Lab 4</h1>
         </div>
         <div class="container">
+            <!-- <div class="wrapper"></div> -->
             
-            <form>
-                <ul class="flex-outer">
-                    <li>
-                    <label for="fname">First Name</label>
-                    <input type="text" name= "fname" id= "fname"  placeholder="Enter your first name here">
-                    </li>
+                <form action="/api" method="post">
+                    <ul class="flex-outer">
+                        <li>
+                        <label for="fname">First Name</label>
+                        
+                        <input type="text" name= "fname" id= "fname"  placeholder="Enter your first name here">
+                        
+                        </li>
 
-                    <li>
-                    <label for="lname">Last Name</label>
-                    <input type="text" name= "lname" id= "lname"  placeholder="Enter your last name here">
-                    </li>
+                        <li>
+                        <label for="lname">Last Name</label>
+                        <input type="text" name= "lname" id= "lname"  placeholder="Enter your last name here">
+                        </li>
 
-                    <li>
-                    <label for="email-address">Email</label>
-                    <input type="email" name= "email-address" id= "email-address"  placeholder="Enter your email here">
-                    </li>
+                        <li>
+                        <label for="email-address">Email</label>
+                        <input type="email" name= "email-address" id= "email-address"  placeholder="Enter your email here">
+                        </li>
 
-                    <li>
-                    <label for="phone-number">Phone Number</label>
-                    <input type="tel" name= "phone-number"  id= "phone-number" placeholder="Enter your phonenumber here">
-                    </li>
+                        <li>
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" name= "phone-number"  id= "phone-number" placeholder="Enter your phone number here">
+                        </li>
 
-                    <li>
-                    <label for="message">Message</label>
-                    <textarea rows="5" cols="33" name= "message" id= "message" placeholder="Enter your message here"></textarea>
-                    </li>
+                        <li>
+                        <label for="message">Message</label>
+                        <textarea rows="5" cols="33" name= "message" id= "message" placeholder="Enter your message here"></textarea>
+                        </li>
 
-                    <li>
-                        <p>Age</p>
-                        <ul class="flex-inner">
-                            <li>
-                                <input type="checkbox" name="eighteen-to-thirtyfive" id="eighteen-to-thirtyfive">
-                                <label for="eighteen-to-thirtyfive">18-35</label>
-                            </li>
+                        <li>
+                            <p>Age</p>
+                            <ul class="flex-inner">
+                                <li>
+                                    <input type="checkbox" name="eighteen-to-thirtyfive" id="eighteen-to-thirtyfive">
+                                    <label for="eighteen-to-thirtyfive">18-35</label>
+                                </li>
 
-                            <li>
-                                <input type="checkbox" name="thirtyfive-to-fifty" id="thirtyfive-to-fifty">
-                                <label for="thirtyfive-to-fifty">35-50</label>
-                            </li>
+                                <li>
+                                    <input type="checkbox" name="thirtyfive-to-fifty" id="thirtyfive-to-fifty">
+                                    <label for="thirtyfive-to-fifty">35-50</label>
+                                </li>
 
-                            <li>
-                                <input type="checkbox" name="fifty-to-sixtyfive" id="fifty-to-sixtyfive">
-                                <label for="fifty-to-sixtyfive">50-65</label>
-                            </li>
+                                <li>
+                                    <input type="checkbox" name="fifty-to-sixtyfive" id="fifty-to-sixtyfive">
+                                    <label for="fifty-to-sixtyfive">50-65</label>
+                                </li>
+                            </ul>
+                        </li>    
+                                <li>
+                                    <button type="submit" name="submit" id="submit">Submit form</button>
+                                </li>
 
-                            <li>
-                                <button type="submit" name="submit" id="submit">Submit</button>
-                            </li>
+                            
 
-                        </ul>
+                        
 
-                    </li>
-
-                </ul>    
-
-
-
-
-            </form>
+                    </ul>    
 
 
-            
 
 
-        </div>
-        <div class="wrapper"></div>
+                </form>
+
+
+            <!-- </div> -->
+        </div>      
+
+        
+        
     </body>
 </html>
