@@ -1,0 +1,113 @@
+<html lang='en'>
+    <head>
+        <title>Samson Joseph's Lab 4</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class= "header">
+            <h1>Samson Joseph's Lab 4</h1>
+        </div>
+        <div class="container">
+            <!-- <div class="wrapper"></div> -->
+            
+                <form action="/api" method="post">
+                    <ul class="flex-outer">
+                        <li>
+                        <label for="fname">First Name</label>
+                        
+                        <input type="text" name= "fname" id= "fname"  placeholder="Enter your first name here">
+                        
+                        </li>
+
+                        <li>
+                        <label for="lname">Last Name</label>
+                        <input type="text" name= "lname" id= "lname"  placeholder="Enter your last name here">
+                        </li>
+
+                        <li>
+                        <label for="email-address">Email</label>
+                        <input type="email" name= "email-address" id= "email-address"  placeholder="Enter your email here">
+                        </li>
+
+                        <li>
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" name= "phone-number"  id= "phone-number" placeholder="Enter your phone number here">
+                        </li>
+
+                        <li>
+                        <label for="message">Message</label>
+                        <textarea rows="5" cols="33" name= "message" id= "message" placeholder="Enter your message here"></textarea>
+                        </li>
+
+                        <li>
+                            <p class="checkbox-list-label">Age</p>
+                            <ul class="flex-inner">
+                                <li>
+                                    <input type="checkbox" name="eighteen-to-thirtyfive" id="eighteen-to-thirtyfive">
+                                    <label for="eighteen-to-thirtyfive">18-35</label>
+                                </li>
+
+                                <li>
+                                    <input type="checkbox" name="thirtyfive-to-fifty" id="thirtyfive-to-fifty">
+                                    <label for="thirtyfive-to-fifty">35-50</label>
+                                </li>
+
+                                <li>
+                                    <input type="checkbox" name="fifty-to-sixtyfive" id="fifty-to-sixtyfive">
+                                    <label for="fifty-to-sixtyfive">50-65</label>
+                                </li>
+                            </ul>
+                        </li>    
+                        <li>
+                            <button onclick="testFunction()" class="button" type="submit" name="submit" id="submit">Submit Form</button>
+                        </li>
+                            
+                        <li>
+                            <button onclick="demofunction()" class="button" type="button" name="active" id="active">Activate</button>
+                        </li>
+
+                    </ul>    
+
+                </form>
+            
+        </div>
+
+        
+        
+        <script>
+            function testFunction() {
+                
+                fetch('/api')
+                .then((response) => response.text())
+                .then((response) => {     
+                    
+                    console.log(response);
+                    const h_el = document.querySelector('.header h1')
+                    console.log(h_el)
+                    h_el.innerText=response;                  
+                 
+                })
+            }
+
+            function demofunction(){
+                const fruit = document.querySelector('.checkbox-list-label')
+                console.log(fruit);
+                fruit.innerText='Fruits'
+                document.body.style.backgroundColor='#9FA322';
+                
+
+                const elements = document.querySelectorAll('.flex-inner li label')
+                const fruitArray = ['mango', 'papaya', 'banana']
+                elements.forEach((el,i) => {
+                    const text = el.innerText;
+                    console.log(text);
+                    el.innerText=fruitArray[i];
+
+                }) 
+            }
+            
+
+        </script>
+
+    </body>
+</html>
