@@ -16,7 +16,8 @@ app.use(express.static('public'));
 app.route('/api')
   .get((req, res) => {
     console.log('GET request detected');
-    res.send(`Lab 5 for ${process.env.NAME}`);
+    res.send('Lab 5 for Samson Joseph'); 
+
   })
   .post((req, res) => {
     console.log('POST request detected');
@@ -26,3 +27,6 @@ app.route('/api')
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 }); 
+
+
+// ${process.env.NAME}`);

@@ -83,8 +83,11 @@
                     
                     console.log(response);
                     const h_el = document.querySelector('.header h1')
-                    console.log(h_el)
+                    const title = document.querySelector('title')
                     h_el.innerText=response;                  
+                    title.innerText = response;
+                    const form = document.querySelector('.flex-outer');
+                    form.style.margin = '0 auto';
                  
                 })
             }
