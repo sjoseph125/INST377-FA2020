@@ -19,7 +19,7 @@ function sortFunction(a, b, key) {
 function getRandomIntInclusive(min, max) {
   min1 = Math.ceil(min);
   max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); 
+  return Math.floor(Math.random() * (max1 - min1 + 1) + min1);
 }
 
 document.body.addEventListener('submit', async (e) => {
@@ -34,7 +34,7 @@ document.body.addEventListener('submit', async (e) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      console.log(fromServer)
+      console.log(fromServer);
       if (document.querySelector('.flex-inner')) {
         document.querySelector('.flex-inner').remove();
       }
@@ -46,17 +46,17 @@ document.body.addEventListener('submit', async (e) => {
         return fromServer[num];
       });
 
-      const reverseList = arr_2.sort((a,b) => sortFunction(b, a, 'name'));
+      const reverseList = arr_2.sort((a, b) => sortFunction(b, a, 'name'));
       const ol = document.createElement('ol');
       ol.className = 'flex-inner';
       $('form').prepend(ol);
 
-      reverseList.forEach((el, i)=> {
-        console.log(el.code)
+      reverseList.forEach((el, i) => {
+        console.log(el.code);
         const li = document.createElement('li');
-        $(li).append('<input type="checkbox" value=$(el.code) id=$(el.code) />');
-        
-        $(li).append('<label for=$(el.code)>$(el.name) </label> ');
+        $(li).append(`<input type="checkbox" value=${el.code} id=${el.code}/>`);
+
+        $(li).append(`<label for=${el.code}>${el.name} </label>`);
         $(ol).append(li);
       });
       // console.log('fromServer', fromServer);
