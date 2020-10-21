@@ -16,6 +16,11 @@ function sortFunction(a, b, key) {
   }
   return 0;
 }
+function getRandomIntInclusive(min, max) {
+  min1 = Math.ceil(min);
+  max1 = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); 
+}
 
 document.body.addEventListener('submit', async (e) => {
   e.preventDefault(); // this stops whatever the browser wanted to do itself.
@@ -29,8 +34,32 @@ document.body.addEventListener('submit', async (e) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      // You're going to do your lab work in here. Replace this comment.
-      console.log('fromServer', fromServer);
+      console.log(fromServer)
+      if (document.querySelector('.flex-inner')) {
+        document.querySelector('.flex-inner').remove();
+      }
+      // eslint-disable-next-line camelcase
+      const arr_1 = range(10);
+      // eslint-disable-next-line camelcase
+      const arr_2 = arr_1.map(() => {
+        const num = getRandomIntInclusive(0, 243);
+        return fromServer[num];
+      });
+
+      const reverseList = arr_2.sort((a,b) => sortFunction(b, a, 'name'));
+      const ol = document.createElement('ol');
+      ol.className = 'flex-inner';
+      $('form').prepend(ol);
+
+      reverseList.forEach((el, i)=> {
+        console.log(el.code)
+        const li = document.createElement('li');
+        $(li).append('<input type="checkbox" value=$(el.code) id=$(el.code) />');
+        
+        $(li).append('<label for=$(el.code)>$(el.name) </label> ');
+        $(ol).append(li);
+      });
+      // console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
 });
