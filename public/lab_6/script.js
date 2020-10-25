@@ -1,5 +1,3 @@
-// You may wish to find an effective randomizer function on MDN.
-
 function range(int) {
   const arr = [];
   for (let i = 0; i < int; i += 1) {
@@ -16,10 +14,35 @@ function sortFunction(a, b, key) {
   }
   return 0;
 }
+
 function getRandomIntInclusive(min, max) {
   min1 = Math.ceil(min);
   max1 = Math.floor(max);
-  return Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+  test_value = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+  test_arr = [];
+  test_arr.push(test_value);
+
+  // Tried to make sure all numbers were unique, but couldn't figure it out
+
+  // console.log(test_arr);
+  const index = test_arr.length;
+  // if (test_arr.length > 1) {
+  for (let i = 0; i < index; i++) {
+    // console.log(test_arr[i]);
+    for (let x = i + 1; x < index; x++) {
+      console.log(test_arr[i], test_arr[x]);
+      if (test_arr[i] === test_arr[x]) {
+
+        test_arr[x] = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+        console.log(test_arr[x]);
+        test_value = test_arr[x];
+      }
+    }
+  }
+  // }
+  console.log(test_arr);
+  return test_value;
+  // return Math.floor(Math.random() * (max1 - min1 + 1) + min1);
 }
 
 document.body.addEventListener('submit', async (e) => {
@@ -34,7 +57,7 @@ document.body.addEventListener('submit', async (e) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      console.log(fromServer);
+      // console.log(fromServer);
       if (document.querySelector('.flex-inner')) {
         document.querySelector('.flex-inner').remove();
       }
@@ -43,6 +66,8 @@ document.body.addEventListener('submit', async (e) => {
       // eslint-disable-next-line camelcase
       const arr_2 = arr_1.map(() => {
         const num = getRandomIntInclusive(0, 243);
+        // const num = testarr2(0, 243);
+
         return fromServer[num];
       });
 
@@ -52,7 +77,7 @@ document.body.addEventListener('submit', async (e) => {
       $('form').prepend(ol);
 
       reverseList.forEach((el, i) => {
-        console.log(el.code);
+        // console.log(el.code);
         const li = document.createElement('li');
         $(li).append(`<input type="checkbox" value=${el.code} id=${el.code}/>`);
 
