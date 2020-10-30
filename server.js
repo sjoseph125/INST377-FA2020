@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.route('/api')
-  .get(async(req, res) => {
+  .get((req, res) => {
     console.log('GET request detected');
 
     res.send('Lab 7 for Samson Joseph');
@@ -30,6 +30,8 @@ app.route('/api')
   .post(async(req, res) => {
     const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
     const json = await data.json();
+    // const test = json.slice(0, 9);
+    // res.json(test);
     res.json(json);
   });
 
